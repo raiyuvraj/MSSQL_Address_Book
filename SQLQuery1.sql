@@ -29,3 +29,23 @@ select * from AddressBook;
 
 update AddressBook set PhoneNumber=8218501014 where FirstName= 'Yuvaj';
 select * from AddressBook;
+
+--UC5 Delete Existing Contact Using Name
+
+delete AddressBook where FirstName='Vikas';
+select * from AddressBook;
+
+--UC6 Retrive Person belongings to City or State 
+
+select * from AddressBook where City='Lucknow' or State='UP';
+
+--UC7 Size of AddressBook
+
+select COUNT(*) as StateCount, State from AddressBook group by State;
+select COUNT(*) as StateCount, City from AddressBook group by City;
+
+--UC8 Sort Entries By Alphabatically
+
+select * from AddressBook order by FirstName;
+
+
