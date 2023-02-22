@@ -48,4 +48,24 @@ select COUNT(*) as StateCount, City from AddressBook group by City;
 
 select * from AddressBook order by FirstName;
 
+--UC9 Identify Each AddressBook with Name and Type
+
+alter table AddressBook add ContactType varchar(100) not null default 'Friend';
+update AddressBook set ContactType='Family' where FirstName='Amit';
+select * from AddressBook;
+
+--UC10 Get Count by Count type
+select COUNT(*) as Type, ContactType from AddressBook group by ContactType;
+
+--UC11 Add Person to both Family and Friend
+insert into AddressBook(FirstName,LastName,Address,City,State,Zip,PhoneNumber,Email,ContactType)
+values('Krisha','murthy','DGG','DGG','CG',491445,9644556677,'krish07@gmail.com','Friend'),
+('Krisha','murthy','DGG','DGG','CG',491445,9644556677,'krish07@gmail.com','Family');
+select * from AddressBook;
+
+--UC12 Creating Table Using Normalization and ER Diagram
+
+Create table Address_Book1(
+AddressBookId Int Identity(1,1) Primary Key,
+AddressBookName varchar(100));
 
